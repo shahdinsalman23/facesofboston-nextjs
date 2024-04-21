@@ -1,33 +1,1863 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900|Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Rajdhani:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+@import url("https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css");
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+
+/* text selection color */
+
+::-moz-selection {
+    background: var(--primary-color);
+    color: var(--theme-white);
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--primary-color);
+    color: var(--theme-white);
+    text-shadow: none;
+}
+
+
+/* browser scroller style */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+ ::-webkit-scrollbar-button:end:increment {
+    display: none;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #ecedf1;
+    -webkit-border-radius: 0px;
+    border-left: 1px solid #888;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    -webkit-border-radius: 0px;
+    background: var(--primary-color);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: var(--base-font-family);
+    color: var(--default-color);
+    font-size: var(--base-font-size);
+    background-color: #141919 !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.ff-primary {
+    font-family: var(--base-font-family);
+}
+
+.ff-secondary {
+    font-family: var(--secondary-font-family);
+}
+
+.fc-primary {
+    color: var(--primary-color);
+}
+
+.fc-secondary {
+    color: var(--secondary-color);
+}
+
+.fc-dark {
+    color: var(--dark-color);
+}
+
+.fc-lite {
+    color: var(--lite-color);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*** theme sections padding ***/
+
+.sec-padding-100 {
+    padding: 100px 0;
+}
+
+.sec-padding-90 {
+    padding: 90px 0;
+}
+
+.sec-padding-80 {
+    padding: 80px 0;
+}
+
+.sec-padding-70 {
+    padding: 70px 0;
+}
+
+.sec-padding-60 {
+    padding: 60px 0;
+}
+
+.sec-padding-xlarge {
+    padding: 50px 0;
+}
+
+.sec-padding-large {
+    padding: 40px 0;
+}
+
+.sec-padding-medium {
+    padding: 30px 0;
+}
+
+.sec-padding-small {
+    padding: 25px 0;
+}
+
+.sec-padding-xsmall {
+    padding: 10px 0;
+}
+
+
+/*** theme sections margin ***/
+
+.sec-margin-100 {
+    margin: 100px 0;
+}
+
+.sec-margin-90 {
+    margin: 90px 0;
+}
+
+.sec-margin-80 {
+    margin: 80px 0;
+}
+
+.sec-margin-70 {
+    margin: 70px 0;
+}
+
+.sec-margin-60 {
+    margin: 60px 0;
+}
+
+.sec-margin-xlarge {
+    margin: 50px 0;
+}
+
+.sec-margin-large {
+    margin: 40px 0;
+}
+
+.sec-margin-medium {
+    margin: 30px 0;
+}
+
+.sec-margin-small {
+    margin: 25px 0;
+}
+
+.sec-margin-xsmall {
+    margin: 10px 0;
+}
+
+
+/*** no padding, no marging ***/
+
+.p-0 {
+    padding: 0;
+}
+
+.pt-0 {
+    padding-top: 0px;
+}
+
+.pb-0 {
+    padding-bottom: 0px;
+}
+
+.pl-0 {
+    padding-left: 0px;
+}
+
+.pr-0 {
+    padding-right: 0px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.mt-0 {
+    margin-top: 0px;
+}
+
+.mb-0 {
+    margin-bottom: 0px;
+}
+
+.ml-0 {
+    margin-left: 0px;
+}
+
+.mr-0 {
+    margin-right: 0px;
+}
+
+p strong {
+    color: black;
+}
+
+p span {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+img {
+    border: 0px;
+    outline: none;
+}
+
+
+/*img { max-width: 100%;  }*/
+
+ul,
+li {
+    list-style-type: none;
+}
+
+.relative {
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+.list-simple {
+    list-style: none;
+    margin: 0 0 15px 0;
+    width: 100%;
+    display: inline-block;
+}
+
+.list-simple li {
+    color: #0f0b1f;
+    padding: 0 0 10px 16px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+}
+
+.list-simple li:before {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-size: 13px;
+    color: var(--secondary-color);
+    content: "\e93a";
+    font-family: 'icomoon' !important;
+}
+
+
+/*** morefull block link ***/
+
+.moreFull {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+}
+
+
+/*** transition ***/
+
+.transition {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/*** scale with transition ***/
+
+.scale-with-transition {
+    -webkit-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+
+/* header 
+------------------------------------*/
+
+.header-main {
+    padding: 10px 0px 10px 0px;
+    background-color: #00000094;
+    background-position: center;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+
+.header-logo {
+    width: 100%;
+}
+
+.header-logo img {
+    width: 100%;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-nav ul {
+    display: flex;
+    gap: 39px;
+    justify-content: center;
+    padding: 10px 0px 0px 30px;
+}
+
+.header-nav ul li a {
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+    transition: all .3s ease;
+    width: 100%;
+}
+
+.header-nav ul li a:hover {
+    color: #AF6C2D;
+}
+
+.header-end input {
+    width: 100%;
+    border-radius: 6px;
+    padding: 13px 0px 13px 10px;
+    border: 1px solid #fff;
+}
+
+.header-end input::placeholder {
+    font-family: 'Poppins';
+    color: #8A8A8A;
+}
+
+
+.header-end span i {
+    position: absolute;
+    color: #323232;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-weight: 200;
+    font-size: 24px;
+    top: 30px;
+    right: 10px;
+}
+
+.header-end {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.header-end input:focus {
+    outline: none;
+}
+
+
+/*FIRST BANNER CSS Start*/
+
+.my-pleasure {
+    background-image: url(/images/first-banner-background.png);
+    background-color: #141919;
+    width: 100%;
+    height: 850px;
+    position: relative;
+}
+
+.my-pleasure::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 212px;
+    bottom: 10px;
+    background: linear-gradient(347.99deg, #141919 33.84%, rgba(20, 25, 25, 0) 91.69%);
+}
+
+.my-pleasure-txt {
+    text-align: center;
+    padding: 200px 0px 0px 0px;
+}
+
+.my-pleasure-txt h4 {
+    color: #ffff;
+    text-transform: uppercase;
+    font-size: 60px;
+    font-weight: 700;
+    font-family: 'Oswald';
+}
+
+.my-pleasure-txt h4 span {
+    color: #AF6C2D;
+    font-weight: bold;
+}
+
+.my-pleasure-txt h5 {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 50px;
+    padding: 0px 0px 20px 0px;
+}
+
+.my-pleasure-txt p {
+    font-family: 'Poppins';
+    font-size: 20px;
+    color: #F2F2F2;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+
+/*FIRST BANNER CSS End*/
+
+
+/*SECOND BANNER CSS Start*/
+
+.banner-designimgs {
+    background: #141919;
+    padding: 50px 0px 50px 0px;
+    position: relative;
+}
+
+.banner-designimgs img {
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0px black;
+}
+
+.fb-designimg-2 {
+    padding: 10px 0px 0px 20px;
+}
+
+.fb-designimg-4 {
+    height: 100%;
+    padding: 135px 0px 0px 0px;
+}
+
+.fb-designimg-1 img {
+    width: 100%;
+}
+
+.fb-designimg-2 img {
+    width: 100%;
+}
+
+.fb-designimg-5 img {
+    width: 100%;
+    height: 100%;
+}
+
+img.fb-designimg-6 {
+    width: 100%;
+}
+
+.fb-designimg-3 img {
+    width: 100%;
+    padding: 0px;
+}
+
+.fb-designimg-7 img {
+    width: 100%;
+}
+
+.fb-designimg-4 img {
+    width: 100%;
+}
+
+.fb-designimg-3 {
+    padding: 0px 0px 20px 0px;
+}
+
+.fb-designimg-6 img {
+    width: 100%;
+}
+
+.fb-designimg-7 img {
+    width: 80%;
+    padding: 0px 0px 0px 0px;
+}
+
+.fb-designimg-7 {
+    padding: 0px 0px 10px 0px;
+}
+
+.fb-designimg-8 img {
+    width: 100%;
+}
+
+.banner-design {
+    display: flex;
+    align-items: end;
+}
+
+.first-imgbanner {
+    margin-top: -400px;
+}
+
+.theme-btn {
+    padding: 16px 75px;
+    background: #AF6C2D;
+    border-radius: 52px;
+    color: #fff;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    transition: all .3s ease;
+    border: 1px solid #AF6C2D;
+}
+
+.continue-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0px 0px 0px;
+}
+
+.theme-btn:hover {
+    background: transparent;
+    border: 1px solid #AF6C2D;
+    color: #AF6C2D;
+}
+
+
+/*SECOND BANNER CSS End*/
+
+
+/* Gooogle Ads CSS Start */
+
+.adsense-add {
+    background: url(/images/ct-adsense-banner.jpg);
+    height: 23vh;
+    width: 100%;
+    background-color: #00000033;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: drop-shadow(10px 21px 50px rgba(0, 0, 0, 0.25));
+}
+
+.adsense-add::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(0deg, rgb(0 0 0 / 55%), rgb(0 0 0 / 55%));
+    width: 100%;
+    height: 23vh;
+}
+
+.adsense-add h4 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 56px;
+    position: relative;
+    padding: 80px 0px 0px 0px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+section.recent-photos {
+    padding: 50px 0px;
+    background: #0E1212;
+}
+
+section.recent-photos h3 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 82px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+section.recent-photos p {
+    text-align: center;
+    color: #7E7E7E;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    padding: 0px 0px 60px 0px;
+}
+
+.recent-photo img {
+    width: 100%;
+}
+
+
+/* .recent-slider button.slick-next.slick-arrow {
+    background: none;
+    color: transparent;
+    border: none;
+}
+
+.recent-slider button.slick-prev.slick-arrow {
+    background: none;
+    color: transparent;
+    border: none;
+} */
+
+.recent-photo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(175, 108, 45, 0.64);
+    transition: all .3s ease;
+}
+
+.recent-photo {
+    position: relative;
+}
+
+.recent-photo:hover .recent-photo::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+.photo-details h6 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+    color: #fff;
+    padding: 0px 0px 0px 10px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+.photo-details p {
+    font-family: 'Poppins';
+    font-style: normal;
+    color: #fff !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 32px !important;
+    padding: 0px 0px 0px 10px !important;
+    text-align: left !important;
+    margin: 0px;
+}
+
+.recent-photo-txt {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    z-index: 9;
+    width: 100%;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .6s ease;
+    cursor: pointer;
+}
+
+.recent-slider .recent-photo:hover .recent-photo-txt {
+    visibility: visible;
+    opacity: 1;
+    bottom: 12px;
+}
+
+.recent-slider .recent-photo:hover:before {
+    visibility: visible;
+    opacity: 1;
+}
+
+.recent-slider {
+    position: relative;
+}
+/* 
+.recent-slider::before {
+    position: absolute;
+    content: "";
+    background: #0E1212;
+    width: 50px;
+    height: 320px;
+    left: 0;
+    z-index: 9;
+} */
+
+/* .recent-slider::after {
+    position: absolute;
+    content: "";
+    background: #0E1212;
+    width: 50px;
+    height: 320px;
+    right: 0;
+    z-index: 9;
+    top: 0;
+} */
+
+.photo-download {
+    color: #fff;
+    font-size: 20px;
+    border: 3px solid #fff;
+    padding: 0px 5px;
+    border-radius: 50px;
+    margin: 0px 10px 0px 0px;
+}
+
+
+/* Gooogle Ads CSS End*/
+
+
+/* About Us CSS Start */
+
+.about-us {
+    background-color: #141919;
+    padding: 150px 0px 100px 0px;
+    position: relative;
+}
+
+.about-banner img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.about-us-txt h5 {
+    color: #AF6C2D;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 55px;
+}
+
+.about-us-txt h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 47px;
+    color: #fff;
+    line-height: 67px;
+    text-transform: uppercase;
+}
+
+.about-us-txt span {
+    font-weight: 500;
+}
+
+.about-us-txt p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #B7B7B7;
+    font-family: 'Inter', sans-serif;
+}
+
+.about-btn {
+    padding: 60px 0px 0px 0px;
+}
+
+section.about-us h1 {
+    color: rgba(255, 132, 163, 0.2);
+    position: absolute;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 250px;
+    line-height: 72px;
+    top: 140px;
+    right: 167px;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+}
+
+
+/* About Us CSS End */
+
+
+/* TAKE A PORTRAITS CSS START */
+
+section.take-portraits {
+    padding: 50px 0px;
+}
+
+.take-portraits h3 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 82px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.take-portraits p {
+    text-align: center;
+    color: #7E7E7E;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    padding: 0px 0px 60px 0px;
+}
+
+section.take-portraits img {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.portrait-left {
+    margin-top: -150px;
+}
+
+.potrait-rightimg img {
+    height: 785px;
+}
+
+img.potrait-rightimg {
+    height: 640px;
+}
+
+
+/* TAKE A PORTRAITS CSS END */
+
+
+/* Street Photographer CSS Start */
+
+section.street-photograher {
+    padding: 50px 0px 120px 0px;
+}
+
+.street-portrait img {
+    width: 100%;
+}
+
+.street-portrait {
+    text-align: center;
+}
+
+.street-portrait h4 {
+    color: #AF6C2D;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 69px;
+    padding: 50px 0px 30px 0px;
+    text-transform: uppercase;
+}
+
+.street-portrait p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    color: #fff;
+}
+
+
+/* Street Photographer CSS End */
+
+
+/* Customer Say About Us CSS Start */
+
+.customer-about {
+    background: url(/images/customer-banner.png);
+    height: 637px;
+    width: 100%;
+    background-color: #00000033;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.customer-about h2 {
+    text-align: center;
+    padding: 50px 0px 80px 0px;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px !important;
+    line-height: 114.7%;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.customer-detail ul li {
+    color: #41924B;
+    font-size: 20px;
+}
+
+.customer-detail ul {
+    display: flex;
+    align-items: center;
+}
+
+.customer-review {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.customer-detail {
+    padding: 20px 0px 0px 0px;
+}
+
+.customer-says {
+    background: #fff;
+    border: 1px solid #000000;
+    border-radius: 24px;
+    position: relative;
+    padding: 10px 0px 50px 20px;
+}
+
+.customer-detail h4 {
+    color: #000;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 123.7%;
+    text-transform: uppercase;
+}
+
+.customer-says p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 123.7%;
+    color: #717070;
+    text-transform: uppercase;
+}
+
+.customer-slider ul.slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 40px 0px;
+}
+
+.customer-slider ul.slick-dots li button {
+    border-radius: 23px;
+    padding: 0px 3px 0px 3px;
+    background: #979797;
+    border: none;
+    color: #979797;
+    height: 15px;
+    transition: all .3s ease;
+}
+
+.customer-slider ul.slick-dots .slick-active button {
+    color: #AF6C2D;
+    padding: 0px 10px 0px 10px;
+    background-color: #AF6C2D;
+}
+
+
+/* Customer Say About Us CSS End */
+
+
+/* footer 
+------------------------------------*/
+
+.footer-logo img {
+    width: 100%;
+}
+
+.footer-main {
+    padding: 40px 0px;
+    position: relative;
+}
+
+.footer-logo p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 27px;
+    color: #fff;
+    padding: 10px 0px 0px 15px;
+}
+
+.footer-contact h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 30px;
+    color: #AF6C2D;
+    padding: 20px 0px 70px 0px;
+}
+
+.footer-contact {
+    padding: 10px 0px 0px 20px;
+}
+
+.footer-contact p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    line-height: 22px;
+}
+
+.footer-contact ul {
+    display: flex;
+    gap: 18px;
+    padding: 0;
+    line-height: 60px;
+    margin: 0;
+}
+
+.footer-contact ul li a {
+    font-size: 30px;
+    padding: 0;
+    color: #fff;
+    transition: all .3s ease;
+}
+.footer-contact ul li a:hover {
+  color: #AF6C2D;
+}
+.footer-subcribe h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 30px;
+    color: #AF6C2D;
+    padding: 27px 0px 57px 0px;
+}
+
+.footer-subcribe p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 50px;
+    color: #fff;
+}
+
+.footer-subcribe input {
+    width: 100%;
+    display: block;
+    background: #D9D9D9;
+    border-radius: 10px;
+    padding: 14px 20px;
+    border: 1px solid #D9D9D9;
+}
+
+.footer-subcribe input:focus {
+    outline: none;
+}
+
+.footer-subcribe input::placeholder {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #545454;
+    text-transform: lowercase;
+}
+
+.footer-copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-copyright {
+    padding: 10px 0px 10px 0px;
+}
+
+.footer-copyright p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #969696;
+    text-transform: uppercase;
+}
+
+.footer-copyright p span {
+    color: #AF6C2D;
+}
+.footer-subcribe span:hover {
+  background: transparent;
+  border: 1px solid #AF6C2D;
+  color: #AF6C2D;
+}
+.copyright {
+    position: relative;
+}
+
+.copyright::before {
+    position: absolute;
+    content: "";
+    background: #00A680;
+    height: 1px;
+    width: 100%;
+    bottom: 70px;
+}
+
+.footer-subcribe {
+    position: relative;
+}
+
+.footer-subcribe span {
+    position: absolute;
+    bottom: 0px;
+    font-size: 32px;
+    background: linear-gradient(180deg, #AF6C2D 0%, #885321 100%);
+    border-radius: 10px;
+    right: -1px;
+    color: #fff;
+    padding: 2px 25px;
+    transition: all .3s ease;
+    border: 1px solid #AF6C2D;
+    cursor: pointer;
+}
+
+.footer-subcribe span i {
+    transform: rotate(316deg);
+}
+
+.footer-copyright a {
+    color: #969696;
+}
+
+
+/*FOOTER SECTION CSS END*/
+
+
+/*ABOUT PAGE CSS START*/
+
+.about-us-banner {
+    background-image: url(/images/first-banner-background.png);
+    background-color: #141919;
+    width: 100%;
+    height: 553px;
+    position: relative;
+}
+
+.about-us-banner::before {
+    position: absolute;
+    content: "";
+    background: linear-gradient(359deg, #141919 33.84%, rgba(20, 25, 25, 0) 91.69%);
+    height: 212px;
+    width: 100%;
+    bottom: 0px;
+}
+
+
+/*ABOUT PAGE CSS END*/
+
+
+/*PRIVACY POLICY PAGE CSS START*/
+
+.privacy-policy-txt p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    color: #fff;
+}
+
+.privacy-policy-txt {
+    padding: 50px 30px;
+    background: #141919;
+    box-shadow: 0px 0px 56px 76px rgba(255, 0, 0, 0.04);
+    border-radius: 8px;
+}
+
+section.privacy-policy {
+    margin: 0px 0px 70px 0px;
+}
+
+.stay-in {
+    background-image: url(/images/privacy-stay-banner.png);
+    background-color: #141919;
+    width: 100%;
+    height: 440px;
+    position: relative;
+}
+
+.stay-in-txt {
+    text-align: center;
+    padding: 100px 0px 0px 0px;
+}
+
+.stay-in-txt h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 65px;
+    line-height: 42px;
+    color: #AF6C2D;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.stay-in-txt p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    color: #77838F;
+    letter-spacing: 0.6px;
+    position: relative;
+    padding: 20px 0px 50px 0px;
+}
+
+.stay-in::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(356deg, rgb(0 0 0 / 67%), rgb(0 0 0 / 60%));
+    width: 100%;
+    height: 100%;
+}
+
+.stay-in-txt input {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 48px rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    border: 1px solid #FFFFFF;
+    padding: 10px 20px;
+    width: 519.2px;
+}
+
+.stay-in-txt input:focus {
+    outline: none;
+}
+
+.stay-in-txt input::placeholder {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 27px;
+    color: #77838F;
+    letter-spacing: 0.494118px;
+}
+
+.stay-in-txt span i {
+    position: absolute;
+    top: 87.5%;
+    right: 27.7%;
+    background: #AF6C2D;
+    padding: 7px 7px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+
+/*PRIVACY POLICY PAGE CSS END*/
+
+
+/*CONTACT US PAGE CSS START*/
+
+.contact-form {
+    position: absolute;
+    margin-top: -300px;
+    padding: 50px;
+    border: 1px solid #141919;
+    background: #141919;
+    box-shadow: 0px 0px 56px 76px rgba(255, 0, 0, 0.05);
+    border-radius: 8px;
+    width: 100%;
+}
+
+section.contact-us {
+    position: relative;
+    height: 600px;
+}
+
+.input-field input {
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+    background: #1E1E1D;
+    color: #ffff;
+    border-radius: 8px;
+    border: 1px solid #1E1E1E;
+}
+
+.input-field label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #AF6C2D;
+}
+
+.input-field input:focus {
+    outline: none;
+}
+
+.input-field select {
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+    background: #1E1E1D;
+    border-radius: 8px;
+    border: 1px solid #1E1E1E;
+    color: #fff;
+}
+
+.input-field select:focus {
+    outline: none;
+}
+
+.input-field {
+    padding: 0px 0px 30px 0px;
+}
+
+.input-field textarea {
+    display: block;
+    background: #1E1E1E;
+    padding: 15px 20px;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    border: 1px solid #1E1E1E;
+    width: 100%;
+    height: 200px;
+}
+
+.input-field textarea:focus {
+    outline: none;
+}
+
+.input-field textarea::placeholder {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+}
+
+.input-field p {
+    text-align: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #5A7184;
+    padding: 30px 0px 0px 0px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-us {
+    text-align: center;
+}
+
+.email-us h4 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: #ffff;
+    padding: 0px 0px 20px 0px;
+    font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.email-us img {
+    padding: 6px;
+    border: 1px solid;
+    border-style: dashed;
+    margin: 0px 0px 12px 0px;
+}
+
+.email-us p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #BDBDBD;
+    line-height: 28px;
+    padding: 0px 0px 15px 0pc;
+}
+
+section.contact-details {
+    padding: 50px 0px 70px 0px;
+}
+
+.email-us a {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    color: #AF6C2D;
+}
+
+.support-center a {
+    color: #fff;
+    border-radius: 12px;
+    padding: 10px 25px;
+}
+
+
+/*CONTACT US PAGE CSS END*/
+
+
+/*OUR-GALLERY PAGE CSS START*/
+
+section.our-gallery img {
+    width: 100%;
+    padding: 0px 25px;
+    transition: all .3s ease;
+    margin: 30px 0px 0px 0px;
+}
+
+.slick-center .our-gallery img {
+    transform: scale(1);
+}
+
+.gallery-slider .slick-active.slick-center img {
+    transform: scale(1.3);
+    padding: 0px 0px 20px 0px;
+}
+
+.gall-img-2{
+    transform: scale(1.3);
+}
+
+section.our-gallery {
+    padding: 50px 0px 40px 0px;
+    margin: 0px 0px 50px 0px !important;
+    position: absolute;
+    width: 100%;
+    top: 345px;
+}
+
+.gallery-slider .slick-track {
+    padding: 0px;
+    height: 410px;
+}
+
+.gallery-slider .slick-track {
+    padding: 52px 0px 30px 0px;
+}
+
+.peaple-shot h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    line-height: 82px;
+}
+
+.peaple-shot {
+    padding: 50px 0px;
+}
+
+.peaple-shot img {
+    width: 100%;
+    height: 100%;
+}
+
+.peaple-shot p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    padding: 0px 0px 60px 0px;
+    letter-spacing: -0.5px;
+    color: #7E7E7E;
+}
+
+.peaple-shot img {
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 30px 0px;
+}
+
+
+/*OUR-GALLERY PAGE CSS END*/
+
+
+/*IMAGE DETAILS PAGE CSS START*/
+
+.related-images img {
+    width: 100%;
+    height: 746px;
+    border-radius: 11px;
+}
+
+.related-images {
+    height: 750px;
+    width: 1103px;
+}
+
+.image-slider button.slick-prev.slick-arrow {
+    border: none;
+    color: transparent;
+    background: transparent;
+    position: relative;
+}
+
+.image-slider button.slick-prev.slick-arrow:focus {
+    outline: none;
+}
+
+.image-slider button.slick-prev.slick-arrow::before {
+    content: "";
+    position: absolute;
+    font-family: FontAwesome;
+    color: #515151;
+    font-size: 40px;
+    z-index: 9;
+    top: 400px;
+    left: -35px;
+}
+
+.image-slider button.slick-next.slick-arrow {
+    border: none;
+    color: transparent;
+    background: transparent;
+    position: relative;
+    left: 100%;
+}
+
+.image-slider button.slick-next.slick-arrow:focus {
+    outline: none;
+}
+
+.image-slider button.slick-next.slick-arrow::before {
+    content: "";
+    position: absolute;
+    font-family: FontAwesome;
+    color: #515151;
+    font-size: 40px;
+    z-index: 9;
+    bottom: 320px;
+}
+
+.other-imgdownload ul li a img {
+    height: 99px;
+    width: 74px;
+}
+
+.other-imgdownload ul {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0px 0px 0px;
+}
+
+ul.share-links li a i {
+    color: #9D9797;
+    font-size: 40px;
+}
+
+.other-imgdownload {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li.star-color a i {
+    color: #AF6C2D !important;
+}
+
+.other-imgdownload ul li a {
+    padding: 0 !important;
+}
+
+section.sean-sweeney {
+    padding: 80px 0px 50px 0px;
+}
+
+.sean-txt h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 62px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.sean-img img {
+    width: 100%;
+}
+
+.sean-txt p {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 15px 0px;
+}
+
+.sean-txt ul li {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 0px 15px 0px;
+}
+
+.sean-txt ul li i {
+    color: #AF6C2D;
+}
+
+.add-comment textarea {
+    padding: 25px 20px;
+    background: #000000;
+    border-radius: 23px;
+    border-color: #000000 !important;
+    resize: none;
+    color: #fff;
+    border:1px solid;
+    margin: 30px 0px 50px 0px;
+}
+
+.add-comment textarea:focus {
+    outline: none;
+}
+
+.add-comment textarea::placeholder {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    color: #7E7E7E;
+}
+
+.camera-img img {
+    width: 100%;
+}
+
+.image-information {
+    background: #000000;
+    border-radius: 49px;
+    padding: 30px 50px 20px 50px;
+}
+
+.image-information h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 50px;
+    padding: 0px 0px 20px 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.camera-txt h6 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+}
+
+.camera-txt p {
+    font-family: 'Poppins';
+    font-size: 17px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+}
+
+.camera-detail {
+    padding: 20px 0px;
+}
+
+.camera-detail ul li {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+    color: #7E7E7E;
+    padding: 0px 0px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tag-btn ul {
+    display: flex;
+    gap: 20px;
+}
+
+.tag-btn ul li a {
+    background: #141919;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+}
+
+.tag-btn {
+    padding: 0px 0px 15px 0px;
+}
+
+.image-banner {
+    background-image: url(/images/image-detail-img.png);
+    background-color: #141919;
+    width: 100%;
+    height: 1200px;
+    position: relative;
+    padding: 100px 0px 0px 0px;
+}
+
+.image-banner a span {
+    color: #AF6C2D !important;
+}
+
+.image-banner a {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 36px;
+    color: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.75;
+    display: flex;
+    padding: 0px 30px 30px 0px;
+    gap: 10px;
+}
+
+.album-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/*IMAGE DETAILS PAGE CSS END*/
+
+
+/********** Responsive **********/
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1240px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    
+}
+
+@media only screen and (max-width: 1200px) {
+    
+}
+
+@media only screen and (max-width: 1024px) {
+    
+}
+
+@media only screen and (max-width: 991px) {
+    
+}
+
+@media only screen and (max-width: 767px) {
+   
 }
